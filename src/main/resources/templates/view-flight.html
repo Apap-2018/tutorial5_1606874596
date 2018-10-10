@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Flight</title>
+</head>
+<body>
+
+<h3>List of Flights:</h3>
+<br>
+
+<p>-----------------------------</p>
+<div th:each="flight : ${flights}">
+    <p th:text="'Flight: '+${flight.getOrigin()}+' - '+${flight.getDestination()}"></p>
+    <p th:text="'Pilot Name: '+${flight.getPilot().getName()}"></p>
+    <p th:text="'Pilot License Number: '+${flight.getPilot().getLicenseNumber()}"></p>
+    <td><a th:href="@{'/flight/update/'+${flight.getFlightNumber()}}">Update Flight</a> </td>
+    <p>-----------------------------</p>
+</div>
+
+</body>
+</html>
