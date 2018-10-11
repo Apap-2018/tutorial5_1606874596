@@ -29,7 +29,7 @@ public class PilotController {
         return "add";
     }
 
-    @RequestMapping("/pilot/view")
+    @RequestMapping(value = "/pilot/view", method = RequestMethod.GET)
     public String view(@RequestParam("licenseNumber") String licenseNumber, Model model){
         PilotModel pilot = pilotService.getPilotDetailByLicenseNumber(licenseNumber);
 

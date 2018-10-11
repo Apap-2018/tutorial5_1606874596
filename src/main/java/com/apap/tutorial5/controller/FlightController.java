@@ -35,10 +35,11 @@ public class FlightController {
         return "add";
     }
 
-    @RequestMapping(value = "/flight/delete/{flightNumber}", method = RequestMethod.GET)
-    private String deleteFlight(@PathVariable(value = "flightNumber") String flightNumber){
-        FlightModel flight = flightService.getFlightDetailByFlightNumber(flightNumber);
-        flightService.deleteFlight(flight);
+    @RequestMapping(value = "flight/delete", method = RequestMethod.POST)
+    private String deleteFlight(@ModelAttribute PilotModel pilot, Model model) {
+        for(FlightModel flight :  pilot.getPilotFlight()){
+            flightService.deleteFlightById(flight.getId());
+        }
         return "delete";
     }
 

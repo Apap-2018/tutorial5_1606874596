@@ -30,8 +30,13 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public void deleteFlight(FlightModel flight) {
-        flightDB.delete(flight);
+    public void deleteFlight(FlightModel flightId) {
+        flightDB.delete(flightId);
+    }
+
+    @Override
+    public void deleteFlightById(Long id) {
+        flightDB.deleteById(id);
     }
 
     @Override
